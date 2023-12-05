@@ -1,4 +1,5 @@
 import path from 'path';
+import fs from "fs";
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ESLintWebpackPlugin from 'eslint-webpack-plugin';
 import Dotenv from 'dotenv-webpack';
@@ -42,6 +43,12 @@ const config: Configuration = {
         test: /\.s[ac]ss$/i,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
+
+      /* -- File assets -- */
+      {
+        test: /\.(png|jpg|gif|jpeg)$/i,
+        type: 'asset/resource'
+      }
     ],
   },
   resolve: {
@@ -63,6 +70,10 @@ const config: Configuration = {
     port: 4000,
     open: true,
     hot: true,
+    https: {
+      key: fs.readFileSync('cert/key.pem'),
+      cert: fs.readFileSync('cert/cert.pem'),
+    }
   },
 };
 
