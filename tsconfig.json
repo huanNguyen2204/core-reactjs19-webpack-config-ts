@@ -9,9 +9,9 @@
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "forceConsistentCasingInFileNames": true,
-    "strict": true
+    "strict": true,
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]
