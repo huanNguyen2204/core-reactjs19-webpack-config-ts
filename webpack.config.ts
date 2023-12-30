@@ -1,21 +1,21 @@
-import path from 'path';
+import path from "path";
 // import fs from "fs";
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ESLintWebpackPlugin from 'eslint-webpack-plugin';
-import Dotenv from 'dotenv-webpack';
-import { Configuration as WebpackConfig, HotModuleReplacementPlugin } from 'webpack';
-import { Configuration as WebpackDevServerConfig } from 'webpack-dev-server';
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import ESLintWebpackPlugin from "eslint-webpack-plugin";
+import Dotenv from "dotenv-webpack";
+import { Configuration as WebpackConfig, HotModuleReplacementPlugin } from "webpack";
+import { Configuration as WebpackDevServerConfig } from "webpack-dev-server";
 
 type Configuration = WebpackConfig & {
   devServer?: WebpackDevServerConfig;
 };
 
 const config: Configuration = {
-  mode: 'development',
+  mode: "development",
   output: {
-    publicPath: '/',
+    publicPath: "/",
   },
-  entry: './src/index.tsx',
+  entry: "./src/index.tsx",
   module: {
     rules: [
       /* -- JS/TS loader -- */
@@ -23,9 +23,9 @@ const config: Configuration = {
         test: /\.(ts|js)x?$/i,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+            presets: ["@babel/preset-env", "@babel/preset-react", "@babel/preset-typescript"],
           },
         },
       },
@@ -33,39 +33,39 @@ const config: Configuration = {
       /* -- CSS loader --*/
       {
         test: /\.css$/i,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: ["style-loader", "css-loader", "postcss-loader"],
       },
       {
         test: /\.less$/i,
-        use: ['style-loader', 'css-loader', 'less-loader'],
+        use: ["style-loader", "css-loader", "less-loader"],
       },
       {
         test: /\.s[ac]ss$/i,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
 
       /* -- File assets -- */
       {
         test: /\.(png|jpg|gif|jpeg)$/i,
-        type: 'asset/resource'
-      }
+        type: "asset/resource",
+      },
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.jsx', '.ts', '.js'],
+    extensions: [".tsx", ".jsx", ".ts", ".js"],
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      "@": path.resolve(__dirname, "src"),
     },
   },
   plugins: [
-    new HtmlWebpackPlugin({ template: 'public/index.html' }),
+    new HtmlWebpackPlugin({ template: "public/index.html" }),
     new Dotenv(),
     new HotModuleReplacementPlugin(),
     new ESLintWebpackPlugin(),
   ],
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   devServer: {
-    static: path.join(__dirname, 'dist'),
+    static: path.join(__dirname, "dist"),
     historyApiFallback: true,
     port: 8888,
     open: true,
