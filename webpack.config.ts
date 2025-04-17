@@ -1,14 +1,22 @@
 import path from "path";
-// import fs from "fs";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ESLintWebpackPlugin from "eslint-webpack-plugin";
-import Dotenv from "dotenv-webpack";
+import * as webpack from 'webpack';
+import * as dotenv from 'dotenv';
 import { Configuration as WebpackConfig, HotModuleReplacementPlugin } from "webpack";
 import { Configuration as WebpackDevServerConfig } from "webpack-dev-server";
 
 type Configuration = WebpackConfig & {
   devServer?: WebpackDevServerConfig;
 };
+
+const env = dotenv.config().parsed;
+const envKeys = env
+  ? Object.keys(env).reduce((prev, next) => {
+      prev[`process.env.${next}`] = JSON.stringify(env[next]);
+      return prev;
+    }, {} as Record<string, string>)
+  : {};
 
 const config: Configuration = {
   mode: "development",
@@ -59,7 +67,7 @@ const config: Configuration = {
   },
   plugins: [
     new HtmlWebpackPlugin({ template: "public/index.html" }),
-    new Dotenv(),
+    new webpack.DefinePlugin(envKeys),
     new HotModuleReplacementPlugin(),
     new ESLintWebpackPlugin(),
   ],
