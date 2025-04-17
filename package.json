@@ -1,5 +1,5 @@
 {
-  "packageManager": "yarn@4.5.0",
+  "packageManager": "yarn@4.9.1",
   "scripts": {
     "dev": "webpack serve --config webpack.config.ts",
     "lint": "eslint .",
