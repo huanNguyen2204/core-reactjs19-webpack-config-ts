@@ -69,7 +69,9 @@ const config: Configuration = {
     new HtmlWebpackPlugin({ template: "public/index.html" }),
     new webpack.DefinePlugin(envKeys),
     new HotModuleReplacementPlugin(),
-    new ESLintWebpackPlugin(),
+    new ESLintWebpackPlugin({
+      extensions: [".tsx", ".jsx", ".ts", ".js"]
+    }),
   ],
   devtool: "inline-source-map",
   devServer: {
