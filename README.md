@@ -7,6 +7,7 @@
 
 => Clone this repo and run `yarn install`
 
+#
 ### 2. Including
 - Babeljs
 - ESlint + TypescriptESlint
@@ -18,3 +19,10 @@
 - CSS, SCSS, LESS configuration
 
 => Note: `Jest.config` still not follow in the core built.
+
+#
+### 3. ESlint rules
+- Must use double quotes `""` instead of single one `''`.
+- Must have semi `;` at the last line.   
+- Use regular function `function <name-of-funcs>() {}`, not allow arrow function `const <name-of-funcs> = () => {}`
+(Philosophy of regular functions allow maintain easily than arrow ones [just for solve problems temporary])
