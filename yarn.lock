@@ -3192,6 +3192,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@stylistic/eslint-plugin@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "@stylistic/eslint-plugin@npm:4.2.0"
+  dependencies:
+    "@typescript-eslint/utils": "npm:^8.23.0"
+    eslint-visitor-keys: "npm:^4.2.0"
+    espree: "npm:^10.3.0"
+    estraverse: "npm:^5.3.0"
+    picomatch: "npm:^4.0.2"
+  peerDependencies:
+    eslint: ">=9.0.0"
+  checksum: 10c0/d9b2b08635dc4a98ceb59b3768e58e31ecd65f3e727ca8ed2e3538027d9d3d649d43d62631688cda9087f39b3893950b2a11557ccae11cf55b783b20d3f19e4e
+  languageName: node
+  linkType: hard
+
 "@tailwindcss/node@npm:4.1.4":
   version: 4.1.4
   resolution: "@tailwindcss/node@npm:4.1.4"
@@ -4121,7 +4136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:8.30.1, @typescript-eslint/utils@npm:^6.0.0 || ^7.0.0 || ^8.0.0":
+"@typescript-eslint/utils@npm:8.30.1, @typescript-eslint/utils@npm:^6.0.0 || ^7.0.0 || ^8.0.0, @typescript-eslint/utils@npm:^8.23.0":
   version: 8.30.1
   resolution: "@typescript-eslint/utils@npm:8.30.1"
   dependencies:
@@ -11130,6 +11145,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"picomatch@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "picomatch@npm:4.0.2"
+  checksum: 10c0/7c51f3ad2bb42c776f49ebf964c644958158be30d0a510efd5a395e8d49cb5acfed5b82c0c5b365523ce18e6ab85013c9ebe574f60305892ec3fa8eee8304ccc
+  languageName: node
+  linkType: hard
+
 "pify@npm:^4.0.1":
   version: 4.0.1
   resolution: "pify@npm:4.0.1"
@@ -12293,6 +12315,7 @@ __metadata:
     "@babel/runtime": "npm:^7.27.0"
     "@eslint/compat": "npm:^1.2.8"
     "@eslint/js": "npm:^9.24.0"
+    "@stylistic/eslint-plugin": "npm:^4.2.0"
     "@tailwindcss/postcss": "npm:^4.1.4"
     "@testing-library/dom": "npm:^10.4.0"
     "@testing-library/jest-dom": "npm:^6.6.3"

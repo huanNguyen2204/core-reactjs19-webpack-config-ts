@@ -1,11 +1,11 @@
 import { defineConfig } from "eslint/config";
 import { fixupConfigRules } from "@eslint/compat";
-import globals from "globals";
 import tsParser from "@typescript-eslint/parser";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
 import { FlatCompat } from "@eslint/eslintrc";
+import stylistic from "@stylistic/eslint-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,12 +25,11 @@ export default defineConfig([{
 		"prettier",
 	)),
 
-	languageOptions: {
-		// globals: {
-		// 	"AudioWorkletGlobalScope ": true, // Unintended whitespace here
-		// 	// ...globals.browser,
-		// },
+	plugins: {
+		"@stylistic": stylistic
+	},
 
+	languageOptions: {
 		parser: tsParser,
 		ecmaVersion: "latest",
 		sourceType: "module",
@@ -43,20 +42,16 @@ export default defineConfig([{
 	},
 
 	rules: {
+		// Stylistic rules
+		"@stylistic/semi": ["error", "always"],
+		"@stylistic/quotes": ["error", "double"],
+
+		// Old version of eslint + typescript-eslint
+		"arrow-body-style": ["error", "always"],
 		"react/jsx-uses-react": "off",
 		"react/react-in-jsx-scope": "off",
-		"no-unused-vars": ["error", {
-            "vars": "all",
-            "args": "after-used",
-            "caughtErrors": "all",
-            "ignoreRestSiblings": false,
-            "reportUsedIgnorePattern": false
-        }],
-		'prefer-arrow-callback': ['error', { allowNamedFunctions: false }], // Disallow arrow functions as callbacks
-    // 'no-arrow-functions': 'error', // Disallow arrow functions (custom rule using ESLint plugin)
-
-		// Disallow arrow functions
-    'no-restricted-syntax': [
+		"prefer-arrow-callback": ["error", { allowNamedFunctions: false }], // Disallow arrow functions as callbacks
+    "no-restricted-syntax": [
       'error',
       {
         selector: 'ArrowFunctionExpression',
@@ -64,8 +59,13 @@ export default defineConfig([{
       },
     ],
 
-    // Allow regular functions
-    'prefer-arrow-callback': 'off', // No preference for arrow callbacks
+		"no-unused-vars": ["error", {
+            "vars": "all",
+            "args": "after-used",
+            "caughtErrors": "all",
+            "ignoreRestSiblings": false,
+            "reportUsedIgnorePattern": false
+        }],
     '@typescript-eslint/no-unused-vars': [
       'error',
       { argsIgnorePattern: '^_' }, // Ignore variables prefixed with "_"

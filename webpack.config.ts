@@ -1,8 +1,9 @@
+/* eslint-disable no-restricted-syntax */
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ESLintWebpackPlugin from "eslint-webpack-plugin";
-import * as webpack from 'webpack';
-import * as dotenv from 'dotenv';
+import * as webpack from "webpack";
+import * as dotenv from "dotenv";
 import { Configuration as WebpackConfig, HotModuleReplacementPlugin } from "webpack";
 import { Configuration as WebpackDevServerConfig } from "webpack-dev-server";
 
@@ -13,9 +14,9 @@ type Configuration = WebpackConfig & {
 const env = dotenv.config().parsed;
 const envKeys = env
   ? Object.keys(env).reduce((prev, next) => {
-      prev[`process.env.${next}`] = JSON.stringify(env[next]);
-      return prev;
-    }, {} as Record<string, string>)
+    prev[`process.env.${next}`] = JSON.stringify(env[next]);
+    return prev;
+  }, {} as Record<string, string>)
   : {};
 
 const config: Configuration = {
@@ -38,7 +39,7 @@ const config: Configuration = {
         },
       },
 
-      /* -- CSS loader --*/ 
+      /* -- CSS loader --*/
       {
         test: /\.css$/i,
         use: ["style-loader", "css-loader", "postcss-loader"],
@@ -70,7 +71,7 @@ const config: Configuration = {
     new webpack.DefinePlugin(envKeys),
     new HotModuleReplacementPlugin(),
     new ESLintWebpackPlugin({
-      extensions: [".tsx", ".jsx", ".ts", ".js"]
+      extensions: [".tsx", ".jsx", ".ts", ".js", ".mjs", ".cjs"]
     }),
   ],
   devtool: "inline-source-map",
