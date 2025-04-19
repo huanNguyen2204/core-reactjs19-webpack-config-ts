@@ -29,6 +29,15 @@ export default defineConfig([{
 		"@stylistic": stylistic
 	},
 
+	files: [
+		"**/*.js",
+		"**/*.jsx",
+		"**/*.ts",
+		"**/*.tsx", 
+		"**/*.mjs",
+		"**/*.cjs"
+	],
+
 	languageOptions: {
 		parser: tsParser,
 		ecmaVersion: "latest",

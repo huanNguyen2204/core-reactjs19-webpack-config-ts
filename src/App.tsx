@@ -1,7 +1,6 @@
 import "./App.scss";
 
-function App() {
-
+const App = () => {
   return (
     <div className="App">
       <h1>Welcome to Reactjs core {process.env.DEV}</h1>
@@ -9,6 +8,6 @@ function App() {
       <p className="text-red-500">huan</p>
     </div>
   );
-}
+};
 
 export default App;

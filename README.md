@@ -24,5 +24,5 @@
 ### 3. ESlint rules
 - Must use double quotes `""` instead of single one `''`.
 - Must have semi `;` at the last line.   
-- Use regular function `function <name-of-funcs>() {}`, not allow arrow function `const <name-of-funcs> = () => {}`
-(Philosophy of regular functions allow maintain easily than arrow ones [just for solve problems temporary])
+- Use regular function `function <name-of-funcs>() {}` and arrow function `const <name-of-funcs> = () => {}` but must have `;` at last of arrow function
+
