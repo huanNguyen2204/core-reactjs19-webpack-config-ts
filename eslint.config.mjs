@@ -51,13 +51,13 @@ export default defineConfig([{
 		"react/jsx-uses-react": "off",
 		"react/react-in-jsx-scope": "off",
 		"prefer-arrow-callback": ["error", { allowNamedFunctions: false }], // Disallow arrow functions as callbacks
-    "no-restricted-syntax": [
-      'error',
-      {
-        selector: 'ArrowFunctionExpression',
-        message: 'Arrow functions are not allowed. Use regular functions instead.',
-      },
-    ],
+    // "no-restricted-syntax": [
+    //   'error',
+    //   {
+    //     selector: 'ArrowFunctionExpression',
+    //     message: 'Arrow functions are not allowed. Use regular functions instead.',
+    //   },
+    // ],
 
 		"no-unused-vars": ["error", {
             "vars": "all",
