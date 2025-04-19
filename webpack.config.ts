@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 import path from "path";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import ESLintWebpackPlugin from "eslint-webpack-plugin";
