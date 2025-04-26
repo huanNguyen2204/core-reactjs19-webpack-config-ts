@@ -16,6 +16,6 @@
     "noUnusedLocals": true, // Error on unused local variables
     "noUnusedParameters": true // Error on unused function parameters
   },
-  "include": ["src"],
+  "include": ["src", "**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }
