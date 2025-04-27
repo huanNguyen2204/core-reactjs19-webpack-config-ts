@@ -3,7 +3,7 @@
   "scripts": {
     "dev": "webpack serve --config webpack.config.ts",
     "lint": "eslint .",
-    "format": "npx prettier --write .",
+    "prettier": "npx prettier --write .",
     "build": "webpack"
   },
   "devDependencies": {
