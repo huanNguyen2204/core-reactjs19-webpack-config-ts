@@ -3,8 +3,8 @@
   "scripts": {
     "dev": "webpack serve --config webpack.config.ts",
     "lint": "eslint .",
-    "build": "webpack",
-    "prettier": "prettier --write ."
+    "format": "npx prettier --write .",
+    "build": "webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",

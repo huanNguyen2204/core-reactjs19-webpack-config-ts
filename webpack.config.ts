@@ -12,10 +12,13 @@ type Configuration = WebpackConfig & {
 
 const env = dotenv.config().parsed;
 const envKeys = env
-  ? Object.keys(env).reduce((prev, next) => {
-    prev[`process.env.${next}`] = JSON.stringify(env[next]);
-    return prev;
-  }, {} as Record<string, string>)
+  ? Object.keys(env).reduce(
+      (prev, next) => {
+        prev[`process.env.${next}`] = JSON.stringify(env[next]);
+        return prev;
+      },
+      {} as Record<string, string>,
+    )
   : {};
 
 const config: Configuration = {
@@ -70,7 +73,7 @@ const config: Configuration = {
     new webpack.DefinePlugin(envKeys),
     new HotModuleReplacementPlugin(),
     new ESLintWebpackPlugin({
-      extensions: [".tsx", ".jsx", ".ts", ".js", ".mjs", ".cjs"]
+      extensions: [".tsx", ".jsx", ".ts", ".js", ".mjs", ".cjs"],
     }),
   ],
   devtool: "inline-source-map",

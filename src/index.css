@@ -15,7 +15,5 @@
 } */
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: linear-gradient(lightblue, white);
-  background-color: lightblue;
+  font-family: "Inter", sans-serif;
 }
